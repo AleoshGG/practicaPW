@@ -1,0 +1,23 @@
+<div class="login-content">
+  <form [formGroup]="myForm">
+    <label for="userName">Ingresa el nombre de usuario:</label>
+    <input
+      id="userName"
+      formControlName="userName"
+      placeholder="Nombre de usuario"
+    />
+
+    <div *ngIf="userName?.invalid && userName?.touched">
+      <small *ngIf="userName?.errors?.['required']"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="userName?.errors?.['pattern']"
+        >Solo se permiten letras y números.</small
+      >
+    </div>
+
+    <button (click)="registerUser()" [disabled]="myForm.invalid">
+      Ingresar
+    </button>
+  </form>
+</div>
