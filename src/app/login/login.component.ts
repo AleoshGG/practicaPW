@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from '../service/users.service';
+import { Router } from '@angular/router';
+import { iUser } from '../models/iUser';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private _users: UsersService,
+    private router: Router
+  ) {
     this.myForm = this.fb.group({
       userName: [
         '',
@@ -24,5 +31,7 @@ export class LoginComponent {
 
   registerUser() {
     console.log(this.myForm.get('userName')?.value);
+    this._users.checkUser(this.myForm.get('userName')?.value);
+    this.router.navigate(['/']);
   }
 }
