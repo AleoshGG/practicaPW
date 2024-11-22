@@ -1,0 +1,21 @@
+<div>
+    <table>
+      <!-- Encabezados de la tabla -->
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Dimension</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas dinámicas con los datos -->
+        <tr *ngFor="let location of locations">
+          <td>{{ location.name }}</td>
+          <td>{{ location.type }}</td>
+          <td>{{ location.dimension }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
