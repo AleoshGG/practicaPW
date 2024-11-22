@@ -13,7 +13,10 @@ import { ILocation } from '../../models/ilocation';
 export class HomePComponent implements OnInit {
   locations: ILocation[] = []; // Arreglo para almacenar ubicaciones
 
-  constructor(private homeService: HomeService, private _user: UsersService, private router: Router) {}
+  constructor(
+    private homeService: HomeService, 
+    private _user: UsersService, 
+    private router: Router) {}
 
   ngOnInit(): void {
     const numberUsers = this._user.validateUser();
